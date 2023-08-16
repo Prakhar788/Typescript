@@ -106,3 +106,70 @@ testAny = [true];
 testAny = {};
 let testAnyArray: any[];
 testAnyArray = [1, "two", false, []];
+
+
+// FUNCTIONS
+let sayHi = () => {
+    console.log("Hi, welcome");
+  };
+  
+  // sayHi = "hi"
+  
+  let funcReturnString = (): string => {
+    console.log("hi");
+    return "Prakhar";
+  };
+  
+  let multiple = (num: number) => {
+    return num * 2;
+  };
+  let multiple2 = (num: number): number => {
+    return num * 2;
+  };
+  let multiple3 = (num: number): void => {
+    // return num * 2;
+    //Do anything but don't return any
+  };
+  
+  let sum = (num1: number, num2: number, another?: number) => {
+    return num1 + num2;
+  };
+  
+  sum(2, 3);
+  
+  let func = (user: { username: string; age: number; phone?: string }) => {
+    console.log(user.username);
+  };
+  
+  // TYPE ALIASES
+  type UserType = {
+    username: string;
+    age: number;
+    phone?: string;
+  };
+  
+  let betterFunc = (user: UserType) => {
+    console.log(user.username);
+  };
+  
+  //FUNCTION SIGNATURES
+  type myFunc = (a: number, b: string) => void;
+  
+  let write: myFunc = (num, str) => {
+    console.log(num + " times " + str);
+  };
+  
+  type UserType2 = {
+    username: string;
+    age: number;
+    phone?: string;
+    theme: "dark" | "light";
+  };
+  
+  const userWithTheme: UserType2 = {
+    username: "john",
+    age: 43,
+    // theme:"pink"
+    theme: "dark",
+  };
+  

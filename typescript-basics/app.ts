@@ -311,3 +311,22 @@ interface IUser {
   const getData=(key: keyof Person):string=>{
     return myObj[key];
   }
+
+  // ------------------------------------------
+//   Type Utility
+
+//   Partial<Type>
+
+//   type Person1={
+// name:string,
+// email:string
+//   }
+
+  
+
+//   // type Person2={
+//   //   name?:string,
+//   //   email?:string
+//   //     }
+//   type Person2=Partial<Person1>
+    

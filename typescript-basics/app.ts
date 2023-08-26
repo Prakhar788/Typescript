@@ -372,3 +372,43 @@ interface IUser {
 // }
 
 // type Shipping=Omit<OrderInfo,"address"|"name">
+
+//Exclude<type,exclude union>
+// type Random=Exclude<string|number,number>
+
+// type MyUnion=string|number|boolean
+// type Random=Exclude<MyUnion,number>
+
+
+//Extract<type,union>
+// type Random=Extract<string|number,number>
+
+//Non-nullable<type>
+// type MyUnion=string|number|boolean|null|undefined
+// type Random=NonNullable<MyUnion>
+// type Random2=Exclude<MyUnion,null|undefined>
+
+
+//Parameter<Type>
+// const myfunc=(a:number,b:number)=>{
+//  console.log(a+b);
+// }
+
+// type random3=Parameters<typeof myfunc>
+
+//ConstructerParameter<Type>
+// class sample{
+//   constructor(public s:string,public number:number){
+
+//   }
+// }
+
+// type random3=ConstructorParameters<typeof sample>
+
+//Returntype<type>
+// const myfunc2=():string=>{
+//   return "prakhar";
+// }
+// type func3=ReturnType<typeof myfunc2>
+
+

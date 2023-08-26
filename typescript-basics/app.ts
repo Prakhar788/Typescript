@@ -329,4 +329,46 @@ interface IUser {
 //   //   email?:string
 //   //     }
 //   type Person2=Partial<Person1>
-    
+  
+// Required<type>--opp of partial.
+
+// type Person1={
+// name?:string,
+// email?:string
+// }
+// type Person2=Required<Person1>
+// const user2:Required<Person1>={
+// name:"Prakhar",
+// email:"abc.com"
+// }
+
+ 
+// ReadOnly<Type>
+// type user2={
+//    readonly name:"Prakhar"
+// }
+// const user3:Readonly<user2>={
+//   name:"Prakhar"
+// }
+
+//Pick<type,key>
+// interface OrderInfo{
+//   readonly id:string,
+//   name:string,
+//   address:string,
+//   state:string,
+//   country:string,
+// }
+
+// type Shipping=Pick<OrderInfo,"address"|"name">
+
+//Omit<type,keys>--opp. of pick
+// interface OrderInfo{
+//   readonly id:string,
+//   name:string,
+//   address:string,
+//   state:string,
+//   country:string,
+// }
+
+// type Shipping=Omit<OrderInfo,"address"|"name">

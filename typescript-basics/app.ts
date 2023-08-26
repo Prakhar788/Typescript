@@ -252,3 +252,62 @@ interface IUser {
     desc: "post desc",
     extra: [{ id: 1, title: "cat" }],
   };
+
+
+  //type assertion
+  // const btn=document.getElementById("btn") as HTMLElement;
+  //btn?.onclick
+  // const btn=<HTMLElement>document.getElementById("btn");
+  // btn.onclick;
+  const btn=document.getElementById("btn")!;
+  btn.onclick;
+
+
+  // const img=document.getElementById("img");
+  // img.src 
+  const img=document.getElementById("img") as HTMLImageElement;
+  img.src 
+
+
+  // interface Person{
+  //   name:string,
+  //   email:string
+  // }
+
+  // const myObj:Person={
+  //   name:"prakhar",
+  //   email:"abc.com"
+  // }
+
+  // const getName=():string=>{
+  //   return myObj.name;
+  // }
+  // const getEmail=():string=>{
+  //   return myObj.email;
+  // }
+  interface Person{
+    [key:string]:string
+  }
+
+  const myObj:Person={
+    name:"prakhar",
+    email:"abc.com"
+  }
+
+  const getName=():String=>{
+    return myObj["name"];
+  }
+  const getEmail=():String=>{
+    return myObj["email"];
+  }
+  // const getData=(key:string):string=>{
+  //   return myObj[key];
+  // }
+
+  // const getData=(key:"name" | "email"):string=>{
+  //   return myObj[key];
+  // } //if there are many keys then use keyof.
+  
+  const getData=(key: keyof Person):string=>{
+    return myObj[key];
+  }

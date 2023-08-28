@@ -54,6 +54,10 @@ let testStringOrNumberArray: (string | number)[];
 
 testStringOrNumberArray = [1, "two", 3];
 
+
+const arr:number[]=[];
+const arr9:Array<number>=[];
+
 //// OBJECTS
 let user = {
   username: "john",
@@ -413,10 +417,49 @@ interface IUser {
 
 
 //Generics
-const func7=<T>(n:T):T=>{
-  return n;
-}
+// const func7=<T>(n:T):T=>{
+//   return n;
+// }
 
-const ans=func7("df");
-const ans2=func7(67);
+// const ans=func7("df");
+// const ans2=func7(67);
 
+// type Person4={
+//   name:string,
+//   age:number
+// }
+
+// const obj3:Person4={
+//   name:"P",
+//   age:45
+// }
+// const ans6=func7<Person4>(obj3);
+
+ //generic example-->
+ 
+ type person={
+  name:string,
+  age:number
+ }
+ 
+
+ const array3:Array<person>=[{
+  name:"Prakhar",
+  age:45
+ },{
+  name:"Prakhar",
+  age:45
+ },{
+  name:"Prakhar",
+  age:45
+ },{
+  name:"Prakhar",
+  age:45
+ },]
+ 
+
+ const filter=<T,Key extends keyof T>(arr:T[],property:Key,value:T[Key]):T[]=>{
+return arr.filter(item=>item[property]===value)
+ }
+
+ const filtered=filter(array3,"name","Prakhar");

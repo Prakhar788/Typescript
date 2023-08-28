@@ -412,3 +412,11 @@ interface IUser {
 // type func3=ReturnType<typeof myfunc2>
 
 
+//Generics
+const func7=<T>(n:T):T=>{
+  return n;
+}
+
+const ans=func7("df");
+const ans2=func7(67);
+

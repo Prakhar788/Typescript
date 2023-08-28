@@ -11,11 +11,12 @@ import { ReactNode } from "react";
 
 type PropsType={
 heading:string,
-child:ReactNode
+children:ReactNode;
 };
 const Box = (props:PropsType,) => {
     return (
-      <div>Box{props.heading}{props.child}</div>
+      <div>Box{props.heading}
+      {props.children}</div>
     )
   }
   

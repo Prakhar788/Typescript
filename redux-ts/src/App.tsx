@@ -1,4 +1,6 @@
+const incbyValue=()=>{
 
+}
 
 const App = () => {
   return (

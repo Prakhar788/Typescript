@@ -6,10 +6,12 @@ import { Provider } from 'react-redux/es/exports'
 import { store } from './redux.ts'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
   <Provider store={store}>
+  <React.StrictMode>
+  
   <App />
-  </Provider>
+ 
     
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Provider>,
 )

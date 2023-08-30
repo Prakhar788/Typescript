@@ -26,7 +26,7 @@
 
 import { configureStore,createSlice,PayloadAction } from "@reduxjs/toolkit";
 
-interface StateType{
+export interface StateType{
     count:number;
 }
 const initialState:StateType={
@@ -34,7 +34,7 @@ const initialState:StateType={
 };
 
 const rootSlice=createSlice({
-    initialState:initialState,
+    initialState,
     name:"counter",
     reducers:{
         inc:(state)=>{

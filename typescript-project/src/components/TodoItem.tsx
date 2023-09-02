@@ -2,10 +2,12 @@ type PropsType={
 todo:TodoItemType
 }
 
-const TodoItem = (props:PropsType) => {
+const TodoItem = ({todo}:PropsType) => {
   return (
-    <div>TodoItem
-        {props.todo.id}
+    <div>
+      <div>{todo.title}</div> 
+       <button>Edit</button>
+       <button>Delete</button>
     </div>
   )
 }

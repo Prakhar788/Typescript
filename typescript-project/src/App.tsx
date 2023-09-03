@@ -12,12 +12,18 @@ const App = () => {
   id:String(Math.random()*1000)
  }
  setTodos((prev)=>([...prev,newTodo]));
+//  setTodos((prev)=>{
+//   return ([...prev,newTodo])
+//  });
  setTitle("");
 
  }
 
   const complete=(id:TodoItemType["id"]):void=>{};
-  const deleteH=(id:TodoItemType["id"]):void=>{};
+  const deleteH=(id:TodoItemType["id"]):void=>{
+    const newTodos:TodoItemType[]=todos.filter((i)=>i.id!==id);
+    setTodos(newTodos);
+  };
   return (
     <div>
       
@@ -26,7 +32,7 @@ const App = () => {
       )}
       <form onSubmit={submitHandle}>
       <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" placeholder="new task"></input>
-      <button type="submit">ADD</button>
+      <button disabled={title===""} type="submit">ADD</button>
       </form>
     </div>
   )

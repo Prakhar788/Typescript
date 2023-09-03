@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useState,useEffect} from "react"
 import TodoItem from "./components/TodoItem"
+import { saveLocal } from "./features";
 
 const App = () => {
   const [todos,setTodos]=useState<TodoItemType[]>([]);
@@ -16,6 +17,7 @@ const App = () => {
 //   return ([...prev,newTodo])
 //  });
  setTitle("");
+ 
 
  }
 
@@ -23,7 +25,13 @@ const App = () => {
   const deleteH=(id:TodoItemType["id"]):void=>{
     const newTodos:TodoItemType[]=todos.filter((i)=>i.id!==id);
     setTodos(newTodos);
+   
+
   };
+  useEffect(() => {
+    saveLocal(todos);
+  }, [todos])
+  
   return (
     <div>
       

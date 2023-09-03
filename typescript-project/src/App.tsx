@@ -2,21 +2,17 @@ import { useState } from "react"
 import TodoItem from "./components/TodoItem"
 
 const App = () => {
-  const [todos,setTodos]=useState<TodoItemType[]>([
-{
-  title:"Asdsd",
-  isCompleted:false,
-  id:"rgrgf"
-},
-{
-  title:"Asdsd",
-  isCompleted:false,
-  id:"rgrgf"
-}
-
-  ]);
+  const [todos,setTodos]=useState<TodoItemType[]>([]);
    const [title,setTitle]=useState<TodoItemType["title"]>("");
- const submithandle=():void=>{
+ const submitHandle=(event: React.FormEvent<HTMLFormElement>):void=>{
+ event.preventDefault();
+ const newTodo:TodoItemType={
+  title,
+  isCompleted:false,
+  id:String(Math.random()*1000)
+ }
+ setTodos((prev)=>([...prev,newTodo]));
+ setTitle("");
 
  }
 
@@ -28,7 +24,7 @@ const App = () => {
       {todos.map((i)=>
       <TodoItem complete={complete} deleteH={deleteH} key={i.id} todo={i}/>
       )}
-      <form onSubmit={submithandle}>
+      <form onSubmit={submitHandle}>
       <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" placeholder="new task"></input>
       <button type="submit">ADD</button>
       </form>

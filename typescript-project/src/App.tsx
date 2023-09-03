@@ -21,7 +21,7 @@ const App = () => {
 
  }
 
-  const complete=(id:TodoItemType["id"]):void=>{};
+  //const complete=(id:TodoItemType["id"]):void=>{};
   const deleteH=(id:TodoItemType["id"]):void=>{
     const newTodos:TodoItemType[]=todos.filter((i)=>i.id!==id);
     setTodos(newTodos);
@@ -36,7 +36,7 @@ const App = () => {
     <div>
       
       {todos.map((i)=>
-      <TodoItem complete={complete} deleteH={deleteH} key={i.id} todo={i}/>
+      <TodoItem  deleteH={deleteH} key={i.id} todo={i}/>
       )}
       <form onSubmit={submitHandle}>
       <input value={title} onChange={(e)=>setTitle(e.target.value)} type="text" placeholder="new task"></input>

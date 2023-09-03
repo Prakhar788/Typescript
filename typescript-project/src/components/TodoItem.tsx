@@ -2,11 +2,11 @@ import { useState } from "react"
 
 type PropsType={
 todo:TodoItemType,
-complete:(id:TodoItemType["id"])=>void,
+// complete:(id:TodoItemType["id"])=>void,
 deleteH:(id:TodoItemType["id"])=>void,
 }
 
-const TodoItem = ({todo,complete,deleteH}:PropsType) => {
+const TodoItem = ({todo,deleteH}:PropsType) => {
   const [edit,setEdit]=useState<boolean>(false);
   const [text,setText]=useState<string>(todo.title);
   return (

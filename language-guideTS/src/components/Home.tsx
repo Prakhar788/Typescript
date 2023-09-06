@@ -30,7 +30,7 @@ const Home = () => {
   return <Button>{i.name}</Button>
 })} */}
       </Stack>
-      <Typography>
+      <Typography textAlign={"center"}>
         Choose Any One Language.
       </Typography>
     </Container>

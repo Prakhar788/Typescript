@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { saveResult } from "../redux/slices";
+import { useSelector,useDispatch } from "react-redux";
 import {
   Container,
   Typography,
@@ -16,12 +18,18 @@ const Quiz = () => {
   const [count, setCount] = useState<number>(0);
   const [ans, setAns] = useState<string>("");
 
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const {words}=useSelector((state:{root:StateType})=>state.root);
   const nextHandler = (): void => {
     setResult((prev) => [...prev, ans]);
     setCount((prev) => prev + 1);
     setAns("");
   };
+  useEffect(() => {
+    if (count + 1 > words.length) navigate("/result");
+    dispatch(saveResult(result));
+  }, [result]);
   return (
 
     <Container
@@ -33,7 +41,7 @@ const Quiz = () => {
       <Typography m={"2rem 0"}>Quiz</Typography>
 
       <Typography variant={"h3"}>
-        {count + 1} - {"words[count]?.word"}
+        {count + 1} - {words[count]?.word}
       </Typography>
 
       <FormControl>
@@ -46,7 +54,14 @@ const Quiz = () => {
           Meaning
         </FormLabel>
         <RadioGroup value={ans} onChange={(e) => setAns(e.target.value)}>
-         <FormControlLabel value={"lol"} control={<Radio/>} label={"Option 1"}/>
+          {words[count]?.options.map((i, idx) => (
+            <FormControlLabel
+              value={i}
+              control={<Radio />}
+              label={i}
+              key={idx}
+            />
+          ))}
         </RadioGroup>
       </FormControl>
 
@@ -59,7 +74,7 @@ const Quiz = () => {
         onClick={nextHandler}
         disabled={ans === ""}
       >
-        {"count === words.length - 1" ? "Submit" : "Next"}
+        {count === words.length - 1 ? "Submit" : "Next"}
       </Button>
     </Container>
   )

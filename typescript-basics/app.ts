@@ -197,6 +197,15 @@ let sayHi = () => {
     cvv:"a"
 
   }
+
+//enum
+// enum SeatChoice{
+//   AISLE,MIDDLE,WINDOW,FOURTH
+// }
+// const seat=SeatChoice.AISLE
+enum SeatChoice{
+  AISLE=1,MIDDLE=3,WINDOW=7,FOURTH
+}
   
 //// INTERFACES
 // Be aware no equal sign

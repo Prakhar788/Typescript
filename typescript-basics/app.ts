@@ -176,6 +176,23 @@ let sayHi = () => {
     // theme:"pink"
     theme: "dark",
   };
+
+
+  type CardDate={
+    cardnumber:string;
+  }
+  type CardName={
+    cardname:string;
+  }
+
+  type Carddetails=CardDate & CardName & {cvv:string}
+
+  let user345:Carddetails={
+    cardname:"abc",
+    cardnumber:"12345",
+    cvv:"a"
+
+  }
   
 //// INTERFACES
 // Be aware no equal sign

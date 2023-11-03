@@ -111,6 +111,10 @@ testAny = {};
 let testAnyArray: any[];
 testAnyArray = [1, "two", false, []];
 
+//Tuples
+let userP:[number,string,boolean]
+userP=[54,"gh",true]
+
 
 // FUNCTIONS
 let sayHi = () => {

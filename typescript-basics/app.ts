@@ -493,3 +493,26 @@ return arr.filter(item=>item[property]===value)
  }
 
  const filtered=filter(array3,"name","Prakhar");
+
+
+ //In Operator narrowing
+ interface User5{
+  name:string,
+  email:string,
+ }
+ interface Admin5{
+  name:string,
+  email:string,
+  isAdmin:boolean
+ }
+
+//  const isAdminAcc=(account:User5|Admin5)=>{
+//   return account.isAdmin   //problem
+//  }
+
+
+const isAdminAcc=(account:User5|Admin5)=>{
+  if("isAdmin" in account){
+    return account.isAdmin;
+  }
+ }
